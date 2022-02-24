@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { items } from '../assets/Helpers/navBarDropdownItems';
+import { items } from '../../assets/Helpers/navBarDropdownItems';
 import LoginButton from './LoginButton';
 import NavBarDropDown from './NavBarDropDown';
 import MobileMenu from './MobileMenu';
