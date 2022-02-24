@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { membersSays } from '../../assets/Helpers/membersays';
+import { membersSays } from '../../Helpers/membersays';
 const MemberSays = () => {
   return (
     <div className='bg-d-blue py-5 lg:mx-10'>
