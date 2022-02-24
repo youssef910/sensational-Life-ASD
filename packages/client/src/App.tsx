@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar';
+import Footer from './components/footer/Footer';
+import NavBar from './components/navbar/NavBar';
 import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound';
 
@@ -14,6 +15,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

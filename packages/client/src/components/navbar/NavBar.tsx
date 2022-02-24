@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { items } from '../assets/Helpers/navBarDropdownItems';
+import { items } from '../../assets/Helpers/navBarDropdownItems';
 import LoginButton from './LoginButton';
 import NavBarDropDown from './NavBarDropDown';
 import MobileMenu from './MobileMenu';
-import logo from '../assets/images/Logo.jpg';
+import logo from '../../assets/images/Logo.jpg';
 const NavBar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
