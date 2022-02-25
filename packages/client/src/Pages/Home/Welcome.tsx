@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import autisticLittleGirl from '../../assets/images/autistic-little-girl-close-up.jpg';
 import RegisterPage from '../RegisterPage/Register';
+import SignInPage from '../SignIn Page/SignInPage';
 
 const Welcome = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const handleClose = (state: boolean) => setIsOpen(state);
+  const [openRegister, setOpenRegister] = useState(false);
+  const [openSignIn, setOpenSignIn] = useState(false);
+  const handleRegister = (state: boolean) => setOpenRegister(state);
+  const handleSignIn = (state: boolean) => setOpenSignIn(state);
+
   return (
     <div
       className=' grid grid-rows-2  relative bg-d-ltBg md:grid-cols-2 
@@ -56,7 +59,7 @@ const Welcome = () => {
         </ul>
         <div>
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => setOpenRegister(true)}
             className=' border-1 group  focus:ring-d-Black-300 my-5 ml-6 mr-5
             w-3/4 bg-d-blue px-4 py-0  text-center  font-ambit_bold text-24 text-white 
             hover:bg-blue-800 focus:outline-none focus:ring '
@@ -80,7 +83,18 @@ const Welcome = () => {
         />
         <div className='absolute bottom-5 right-10 z-0 h-4/5 w-2/3 rounded-2xl bg-d-lBlue'></div>
       </div>
-      {isOpen && <RegisterPage onClick={handleClose} />}
+      {openRegister && (
+        <RegisterPage
+          handleRegister={handleRegister}
+          handleSignIn={handleSignIn}
+        />
+      )}
+      {openSignIn && (
+        <SignInPage
+          handleSignIn={handleSignIn}
+          handleRegister={handleRegister}
+        />
+      )}
     </div>
   );
 };
