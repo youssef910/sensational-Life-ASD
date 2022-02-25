@@ -50,37 +50,39 @@ const RegisterPage: React.FC<registerProps> = (props) => {
         </button>
       </div>
       <div className=' col-span-2  pt-16'>
-        <h1 className='my-10 text-center '>Register With Us</h1>
+        <h1 className='my-10 text-center  text-40 font-roboto '>
+          Register With Us
+        </h1>
         <form
-          className='mx-2 flex flex-col justify-items-center space-y-5 md:mx-24 '
+          className='mx-2 flex flex-col justify-items-center space-y-5 md:mx-24 font-ambit_italic text-16 '
           onSubmit={handleSubmit}
         >
           <Inputs
             value={form.name}
             name='name'
             type='text'
-            placeholder='name'
+            placeholder='Name'
             onChange={handleChange}
           />
           <Inputs
             value={form.email}
             name='email'
             type='email'
-            placeholder='email'
+            placeholder='Email'
             onChange={handleChange}
           />
           <Inputs
             value={form.pwd}
             name='pwd'
             type='password'
-            placeholder='password'
+            placeholder='Password'
             onChange={handleChange}
           />
           <Inputs
             value={form.confirmPwd}
             name='confirmPwd'
             type='password'
-            placeholder='Confirm Password'
+            placeholder='Repeat Password'
             onChange={handleChange}
           />
           <button className='mt-5 bg-d-blue py-2 text-center font-ambit_bold text-20 text-white lg:px-5 '>
