@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import WhatWeDoImg from '../../assets/images/cute-girl-with-down-syndrome-in-mothers-arms.jpg';
 const WhatWeDo = () => {
   return (
-    <div className=' grid grid-rows-2  bg-d-lBlue md:grid-cols-2 md:grid-rows-1 lg:mx-10 '>
+    <div
+      className=' grid grid-rows-2  bg-d-lBlue md:grid-cols-2 
+    md:grid-rows-1 lg:mx-10 componentHight  p-2 md:p-5 '
+    >
       <div className='grid  justify-items-center pl-2 '>
         {' '}
         <h1 className='text-center font-roboto	text-48'> What We Do?</h1>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import subscribeImg from '../../assets/images/woman-using-a-mobile-phone-in-the-kitchen.jpg';
+import './Home.css';
 const Subscribe: React.FC = () => {
   const initialState: string = '';
   const [email, setEmail] = useState(initialState);
@@ -14,7 +15,10 @@ const Subscribe: React.FC = () => {
     setIsOpen(true);
   };
   return (
-    <div className='relative grid grid-rows-2  bg-d-beige md:grid-cols-2 md:grid-rows-1 lg:mx-10 '>
+    <div
+      className='relative grid grid-rows-2  bg-d-beige md:grid-cols-2 md:grid-rows-1 
+    lg:mx-10 componentHight  p-2 md:p-5'
+    >
       <div className='grid  justify-items-center py-5  pl-2 '>
         <h1 className='text-start mb-5 font-roboto	text-48'>
           {' '}
@@ -28,8 +32,8 @@ const Subscribe: React.FC = () => {
               <input
                 required
                 type='email'
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setEmail(e.target.value)
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setEmail(event.target.value)
                 }
                 value={email}
                 placeholder='enter your email '
