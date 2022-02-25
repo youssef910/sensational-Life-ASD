@@ -3,7 +3,10 @@ import aboutUsImg from '../../assets/images/about-us-concept.jpg';
 
 const AboutUs = () => {
   return (
-    <div className=' grid grid-rows-2  bg-d-ltBg md:grid-cols-2 md:grid-rows-1 lg:mx-10 '>
+    <div
+      className=' grid grid-rows-2 bg-d-ltBg md:grid-cols-2 
+    md:grid-rows-1 lg:mx-10 componentHight  p-2 md:p-5'
+    >
       <div className='relative   pl-3'>
         <img
           className=' max absolute   bottom-12 left-20 z-10  h-4/6 w-4/5 rounded-xl'

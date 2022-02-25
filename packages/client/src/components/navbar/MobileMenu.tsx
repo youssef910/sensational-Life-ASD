@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarDropDown from './NavBarDropDown';
-import { items } from '../../assets/Helpers/navBarDropdownItems';
+import { items } from '../../Helpers/navBarDropdownItems';
 import LoginButton from './LoginButton';
 const MobileMenu = () => {
   return (

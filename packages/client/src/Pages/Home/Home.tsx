@@ -6,6 +6,7 @@ import Subscribe from './SubscribeNL';
 import Welcome from './Welcome';
 import WeSupportU from './WeSupportU';
 import WhatWeDo from './WhatWeDo';
+import './Home.css';
 const Home = () => {
   return (
     <>

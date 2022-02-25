@@ -1,7 +1,7 @@
 
 const ScrollDown = () => {
   return (
-    <div className='grid grid-cols-1 justify-items-center bg-d-ltBg lg:mx-10'>
+    <div className='grid grid-cols-1 justify-items-center bg-d-ltBg lg:mx-10 h-36'>
       {' '}
       <h1 className='size-27 text-center font-ambit_bold text-d-blue'>
         SCROLL DOWN

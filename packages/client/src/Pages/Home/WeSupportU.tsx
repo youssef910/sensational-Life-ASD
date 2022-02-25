@@ -4,8 +4,8 @@ import weSupportUImg from '../../assets/images/supporting-elderly-woman.jpg';
 const WeSupportU = () => {
   return (
     <div
-      className=' grid grid-rows-2  bg-d-ltBg md:grid-cols-2 md:grid-rows-1 lg:mx-10 '
-      // className="xs:grid-col-1  grid gap-2 bg-d-ltBg py-14 sm:grid-rows-2 md:grid-cols-2 md:grid-rows-1 lg:mx-10 "
+      className=' grid grid-rows-2  bg-d-ltBg md:grid-cols-2 
+    md:grid-rows-1 lg:mx-10 componentHight p-2 md:p-5 '
     >
       <div className='grid  justify-items-center pl-2 '>
         {' '}

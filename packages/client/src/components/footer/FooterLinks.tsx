@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { footerLinks } from '../../assets/Helpers/footerLinks';
+import { footerLinks } from '../../Helpers/footerLinks';
 const mailtoHref =
   'mailto:support@example.com?subject=SendMail&body=Description';
 const FooterLinks = () => {
