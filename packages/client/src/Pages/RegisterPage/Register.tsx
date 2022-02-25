@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import registerImage from '../../assets/images/Register_image.png';
-import Inputs from './Inputs';
-type registerProps = { onClick: (state: boolean) => void };
+import registerImage from '../../assets/images/SignUp.png';
+import Inputs from '../../components/Inputs';
+type registerProps = {
+  handleRegister: (state: boolean) => void;
+  handleSignIn: (state: boolean) => void;
+};
+
 const RegisterPage: React.FC<registerProps> = (props) => {
-  const { onClick } = props;
+  const { handleRegister, handleSignIn } = props;
   const initialState = {
     name: '',
     email: '',
@@ -18,8 +21,7 @@ const RegisterPage: React.FC<registerProps> = (props) => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(form);
-    console.log(onClick);
-    onClick(false);
+    handleRegister(false);
     // setForm(initialState)
   };
 
@@ -31,7 +33,7 @@ const RegisterPage: React.FC<registerProps> = (props) => {
       <div className='absolute '>
         <button
           className='absolute top-0 left-4 h-16 w-16 z-50 '
-          onClick={() => onClick(false)}
+          onClick={() => handleRegister(false)}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -85,19 +87,34 @@ const RegisterPage: React.FC<registerProps> = (props) => {
             placeholder='Repeat Password'
             onChange={handleChange}
           />
-          <button className='mt-5 bg-d-blue py-2 text-center font-ambit_bold text-20 text-white lg:px-5 '>
-            {' '}
+          <button
+            className=' border-1 group  focus:ring-d-Black-300 my-5 ml-6 mr-5
+            w-3/4 bg-d-blue px-4 py-0  text-center  font-ambit_bold text-24 text-white 
+            hover:bg-blue-800 focus:outline-none focus:ring '
+          >
             Register
+            <div
+              className=' absolute  mt-3   ml-20  hidden rounded bg-d-Black 
+                 px-1 text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
+            >
+              Register
+            </div>
           </button>
         </form>
         <div className='mt-10 flex flex-row justify-center  '>
           <h5 className='font-ambit_italic text-16'>
             Already have an account?
-            <Link className='no-underline' to='/'>
+            <button
+              className='no-underline'
+              onClick={() => {
+                handleRegister(false);
+                handleSignIn(true);
+              }}
+            >
               <span className=' pl-2 font-ambit_bold text-16 text-d-blue'>
                 Sign In
               </span>
-            </Link>
+            </button>
           </h5>
         </div>
       </div>
