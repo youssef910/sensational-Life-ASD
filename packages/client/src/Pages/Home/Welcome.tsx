@@ -1,9 +1,16 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import autisticLittleGirl from '../../assets/images/autistic-little-girl-close-up.jpg';
+import RegisterPage from '../RegisterPage/Register';
 
 const Welcome = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = (state: boolean) => setIsOpen(state);
   return (
-    <div className=' grid grid-rows-2  bg-d-ltBg md:grid-cols-2 md:grid-rows-1 lg:mx-10 '>
+    <div
+      className=' grid grid-rows-2  relative bg-d-ltBg md:grid-cols-2 
+    md:grid-rows-1 lg:mx-10 componentHight  p-2 md:p-5'
+    >
       <div className='pl-2  '>
         {' '}
         <h1 className='py-5 pl-4 font-roboto	text-48 '>
@@ -48,21 +55,20 @@ const Welcome = () => {
           </li>
         </ul>
         <div>
-          <Link to='/register'>
-            <button
-              className=' border-1 group  focus:ring-d-Black-300 my-5 ml-6 mr-5
+          <button
+            onClick={() => setIsOpen(true)}
+            className=' border-1 group  focus:ring-d-Black-300 my-5 ml-6 mr-5
             w-3/4 bg-d-blue px-4 py-0  text-center  font-ambit_bold text-24 text-white 
             hover:bg-blue-800 focus:outline-none focus:ring '
-            >
-              Click here to Register
-              <div
-                className=' absolute  mt-3   ml-20  hidden rounded bg-d-Black 
+          >
+            Click here to Register
+            <div
+              className=' absolute  mt-3   ml-20  hidden rounded bg-d-Black 
                  px-1 text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
-              >
-                Click to Register
-              </div>
-            </button>
-          </Link>
+            >
+              Click to Register
+            </div>
+          </button>
         </div>
       </div>
       <div className='relative   pl-3 '>
@@ -74,6 +80,7 @@ const Welcome = () => {
         />
         <div className='absolute bottom-5 right-10 z-0 h-4/5 w-2/3 rounded-2xl bg-d-lBlue'></div>
       </div>
+      {isOpen && <RegisterPage onClick={handleClose} />}
     </div>
   );
 };
