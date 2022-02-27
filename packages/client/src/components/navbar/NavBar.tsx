@@ -38,7 +38,10 @@ const NavBar: React.FC<registerProps> = (props) => {
             </Link>
           </div>
           <div className=' hidden space-x-5 md:flex'>
-            <LoginButton handleSignIn={handleSignIn} />
+            <LoginButton
+              handleSignIn={handleSignIn}
+              handleShowMobileMenu={handleShowMobileMenu}
+            />
           </div>
           <div className='flex items-center md:hidden'>
             <button onClick={handleShowMobileMenu} className='px-3 py-3'>
@@ -79,7 +82,10 @@ const NavBar: React.FC<registerProps> = (props) => {
       </div>
 
       <div className={` ${showMobileMenu === false && 'hidden'} md:hidden`}>
-        <MobileMenu handleSignIn={handleSignIn} />
+        <MobileMenu
+          handleSignIn={handleSignIn}
+          handleShowMobileMenu={handleShowMobileMenu}
+        />
       </div>
     </nav>
   );
