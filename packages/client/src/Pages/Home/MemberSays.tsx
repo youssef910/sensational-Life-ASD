@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { membersSays } from '../../Helpers/membersays';
-import RegisterPage from '../RegisterPage/Register';
-import SignInPage from '../SignIn Page/SignInPage';
-const MemberSays = () => {
-  const [openRegister, setOpenRegister] = useState(false);
-  const [openSignIn, setOpenSignIn] = useState(false);
-  const handleRegister = (state: boolean) => setOpenRegister(state);
-  const handleSignIn = (state: boolean) => setOpenSignIn(state);
+type registerProps = {
+  handleRegister: (state: boolean) => void;
+};
+
+const MemberSays: React.FC<registerProps> = (props) => {
+  const { handleRegister } = props;
   return (
     <div className='bg-d-blue lg:mx-10 min-h-max  p-2 md:p-5 relative'>
       <h2 className='text-center font-roboto text-40 text-white mt-5 mb-4'>
@@ -25,7 +24,10 @@ const MemberSays = () => {
       </div>
       <div className='mt-4 grid justify-items-center mb-5'>
         <button
-          onClick={() => handleRegister(true)}
+          onClick={() => {
+            window.scroll(0, 0);
+            handleRegister(true);
+          }}
           className=' border-1 group  focus:ring-d-Black-300 w-full bg-d-Black px-4
             py-2 text-center  font-ambit_bold text-24   text-white 
             hover:bg-slate-600 focus:outline-none focus:ring '
@@ -39,19 +41,6 @@ const MemberSays = () => {
           </div>
         </button>
       </div>
-
-      {openRegister && (
-        <RegisterPage
-          handleRegister={handleRegister}
-          handleSignIn={handleSignIn}
-        />
-      )}
-      {openSignIn && (
-        <SignInPage
-          handleSignIn={handleSignIn}
-          handleRegister={handleRegister}
-        />
-      )}
     </div>
   );
 };

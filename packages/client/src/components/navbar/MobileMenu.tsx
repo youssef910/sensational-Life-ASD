@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import NavBarDropDown from './NavBarDropDown';
 import { items } from '../../Helpers/navBarDropdownItems';
 import LoginButton from './LoginButton';
-const MobileMenu = () => {
+type registerProps = {
+  handleSignIn: (state: boolean) => void;
+};
+const MobileMenu: React.FC<registerProps> = (props) => {
+  const { handleSignIn } = props;
   return (
     <div
       className='origin-top-left absolute   px-4 pt-3 flex flex-col
-        w-full rounded-md shadow-lg py-1 bg-d-ltBg ri focus:outline-none'
+        w-full rounded-md shadow-lg py-1 bg-d-ltBg ri focus:outline-none z-30'
     >
       <Link
         to='/'
@@ -27,7 +31,7 @@ const MobileMenu = () => {
         Contact
       </Link>
 
-      <LoginButton />
+      <LoginButton handleSignIn={handleSignIn} />
     </div>
   );
 };

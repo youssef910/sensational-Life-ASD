@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import autisticLittleGirl from '../../assets/images/autistic-little-girl-close-up.jpg';
-import RegisterPage from '../RegisterPage/Register';
-import SignInPage from '../SignIn Page/SignInPage';
-
-const Welcome = () => {
-  const [openRegister, setOpenRegister] = useState(false);
-  const [openSignIn, setOpenSignIn] = useState(false);
-  const handleRegister = (state: boolean) => setOpenRegister(state);
-  const handleSignIn = (state: boolean) => setOpenSignIn(state);
-
+type registerProps = {
+  handleRegister: (state: boolean) => void;
+};
+const Welcome: React.FC<registerProps> = (props) => {
+  const { handleRegister } = props;
   return (
     <div
       className=' grid grid-rows-2  relative bg-d-ltBg md:grid-cols-2 
@@ -59,7 +55,7 @@ const Welcome = () => {
         </ul>
         <div>
           <button
-            onClick={() => setOpenRegister(true)}
+            onClick={() => handleRegister(true)}
             className=' border-1 group  focus:ring-d-Black-300 my-5 ml-6 mr-5
             w-3/4 bg-d-blue px-4 py-0  text-center  font-ambit_bold text-24 text-white 
             hover:bg-blue-800 focus:outline-none focus:ring '
@@ -83,18 +79,6 @@ const Welcome = () => {
         />
         <div className='absolute bottom-5 right-10 z-0 h-4/5 w-2/3 rounded-2xl bg-d-lBlue'></div>
       </div>
-      {openRegister && (
-        <RegisterPage
-          handleRegister={handleRegister}
-          handleSignIn={handleSignIn}
-        />
-      )}
-      {openSignIn && (
-        <SignInPage
-          handleSignIn={handleSignIn}
-          handleRegister={handleRegister}
-        />
-      )}
     </div>
   );
 };

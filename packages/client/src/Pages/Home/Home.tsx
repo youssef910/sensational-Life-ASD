@@ -7,15 +7,20 @@ import Welcome from './Welcome';
 import WeSupportU from './WeSupportU';
 import WhatWeDo from './WhatWeDo';
 import './Home.css';
-const Home = () => {
+type registerProps = {
+  handleRegister: (state: boolean) => void;
+};
+
+const Home: React.FC<registerProps> = (props) => {
+  const { handleRegister } = props;
   return (
     <>
-      <Welcome />
+      <Welcome handleRegister={handleRegister} />
       <ScrollDown />
       <AboutUs />
       <WhatWeDo />
-      <WeSupportU />
-      <MemberSays />
+      <WeSupportU handleRegister={handleRegister} />
+      <MemberSays handleRegister={handleRegister} />
       <Subscribe />
       <FQA />
     </>

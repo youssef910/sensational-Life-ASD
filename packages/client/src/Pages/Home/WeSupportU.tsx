@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import weSupportUImg from '../../assets/images/supporting-elderly-woman.jpg';
-import RegisterPage from '../RegisterPage/Register';
-import SignInPage from '../SignIn Page/SignInPage';
-const WeSupportU = () => {
-  const [openRegister, setOpenRegister] = useState(false);
-  const [openSignIn, setOpenSignIn] = useState(false);
-  const handleRegister = (state: boolean) => setOpenRegister(state);
-  const handleSignIn = (state: boolean) => setOpenSignIn(state);
-
+type registerProps = {
+  handleRegister: (state: boolean) => void;
+};
+const WeSupportU: React.FC<registerProps> = (props) => {
+  const { handleRegister } = props;
   return (
     <div
       className=' grid grid-rows-2  bg-d-ltBg md:grid-cols-2 
@@ -24,7 +21,10 @@ const WeSupportU = () => {
         </p>
         <div>
           <button
-            onClick={() => setOpenRegister(true)}
+            onClick={() => {
+              window.scroll(0, 0);
+              handleRegister(true);
+            }}
             className={` border-1 group focus:ring-d-Black-300 my-5
               ml-6 w-fit bg-d-Black px-4 py-2 text-center font-ambit_bold text-24 text-white hover:bg-stone-600 focus:outline-none focus:ring `}
           >
@@ -47,18 +47,6 @@ const WeSupportU = () => {
         />
         <div className='absolute bottom-5 right-10 z-0 h-4/5 w-2/3 rounded-2xl bg-d-beige   '></div>
       </div>
-      {openRegister && (
-        <RegisterPage
-          handleRegister={handleRegister}
-          handleSignIn={handleSignIn}
-        />
-      )}
-      {openSignIn && (
-        <SignInPage
-          handleSignIn={handleSignIn}
-          handleRegister={handleRegister}
-        />
-      )}
     </div>
   );
 };
