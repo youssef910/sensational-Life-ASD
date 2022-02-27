@@ -28,7 +28,7 @@ const RegisterPage: React.FC<registerProps> = (props) => {
   return (
     <div
       className='grid grid-cols-3  bg-d-ltBg lg:mx-10 border-2 border-gray-600 
-    absolute inset-4 md:left-36 z-20  bg-opacity-100 min-h-fit drop-shadow-2xl max-w-fit  '
+    absolute inset-12 md:left-36 z-20  bg-opacity-100 min-h-fit drop-shadow-2xl max-w-fit  '
     >
       <div className='absolute '>
         <button

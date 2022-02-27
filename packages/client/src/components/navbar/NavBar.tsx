@@ -5,9 +5,13 @@ import LoginButton from './LoginButton';
 import NavBarDropDown from './NavBarDropDown';
 import MobileMenu from './MobileMenu';
 import logo from '../../assets/images/Logo.jpg';
-const NavBar = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+type registerProps = {
+  handleSignIn: (state: boolean) => void;
+};
+const NavBar: React.FC<registerProps> = (props) => {
+  const { handleSignIn } = props;
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const handleShowMobileMenu = () => setShowMobileMenu(!showMobileMenu);
   return (
     <nav className='max-h-13 bg-d-ltBg lg:mx-10 '>
       <div className='border-b-gray-500-800 mx-auto border-y  px-8 '>
@@ -34,11 +38,11 @@ const NavBar = () => {
             </Link>
           </div>
           <div className=' hidden space-x-5 md:flex'>
-            <LoginButton />
+            <LoginButton handleSignIn={handleSignIn} />
           </div>
           <div className='flex items-center md:hidden'>
-            <button onClick={handleClick} className='px-3 py-3'>
-              {click && click ? (
+            <button onClick={handleShowMobileMenu} className='px-3 py-3'>
+              {showMobileMenu && showMobileMenu ? (
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='   h-8 w-8'
@@ -74,8 +78,8 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className={`md:hidden lg:hidden  ${!click && 'hidden'}`}>
-        <MobileMenu />
+      <div className={` ${showMobileMenu === false && 'hidden'} md:hidden`}>
+        <MobileMenu handleSignIn={handleSignIn} />
       </div>
     </nav>
   );

@@ -12,10 +12,11 @@ const NavBarDropDown = (props: {
 }) => {
   const { items } = props;
   return (
-    <Menu as='div' className='  relative'>
+    <Menu as='div' className='relative'>
       <Menu.Button
         className='py-2 px-2  no-underline  text-center  font-nexa text-20 
-               hover:bg-d-blue hover:text-d-ltBg active:bg-d-blue text-d-Black focus:bg-d-blue focus:text-d-ltBg'
+               hover:bg-d-blue hover:text-d-ltBg active:bg-d-blue text-d-Black 
+               focus:bg-d-blue focus:text-d-ltBg'
       >
         {items.label}
       </Menu.Button>
@@ -36,11 +37,12 @@ const NavBarDropDown = (props: {
               {({ active }) => (
                 <Link
                   to={item.link}
-                  className={`block px-2 py-3 m-1 rounded-md text-center no-underline font-nexa text-15  ${
-                    active
-                      ? 'border-2 border-d-beige  bg-d-ltBg'
-                      : 'text-d-Black bg-d-beige'
-                  }`}
+                  className={`block px-2 py-3 m-1 rounded-md text-center
+                   no-underline font-nexa text-15  ${
+                     active
+                       ? 'border-2 border-d-beige  bg-d-ltBg'
+                       : 'text-d-Black bg-d-beige'
+                   }`}
                 >
                   {item.label}
                 </Link>
