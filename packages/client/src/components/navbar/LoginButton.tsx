@@ -1,11 +1,15 @@
 type registerProps = {
   handleSignIn: (state: boolean) => void;
+  handleShowMobileMenu: () => void;
 };
 const LoginButton: React.FC<registerProps> = (props) => {
-  const { handleSignIn } = props;
+  const { handleSignIn, handleShowMobileMenu } = props;
   return (
     <button
-      onClick={() => handleSignIn(true)}
+      onClick={() => {
+        handleSignIn(true);
+        handleShowMobileMenu();
+      }}
       className='bg-black  text-white ms-2 rounded-3  
        hover:bg-d-blue hover:text-d-ltBg  focus:bg-d-blue focus:text-d-ltBg w-fit'
     >

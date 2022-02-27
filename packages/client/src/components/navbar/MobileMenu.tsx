@@ -5,9 +5,10 @@ import { items } from '../../Helpers/navBarDropdownItems';
 import LoginButton from './LoginButton';
 type registerProps = {
   handleSignIn: (state: boolean) => void;
+  handleShowMobileMenu: () => void;
 };
 const MobileMenu: React.FC<registerProps> = (props) => {
-  const { handleSignIn } = props;
+  const { handleSignIn, handleShowMobileMenu } = props;
   return (
     <div
       className='origin-top-left absolute   px-4 pt-3 flex flex-col
@@ -31,7 +32,10 @@ const MobileMenu: React.FC<registerProps> = (props) => {
         Contact
       </Link>
 
-      <LoginButton handleSignIn={handleSignIn} />
+      <LoginButton
+        handleSignIn={handleSignIn}
+        handleShowMobileMenu={handleShowMobileMenu}
+      />
     </div>
   );
 };
