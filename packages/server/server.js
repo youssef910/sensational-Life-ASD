@@ -1,15 +1,19 @@
-const express = require('express');
-const port = process.env.PORT || 5000;
+import http from 'http';
 
-const app = express();
+import app from './app.js';
+import { connectDb, disconnectDb } from './db.js';
 
-app.get('/', (req, res) => {
-  res.send('hi i am backend server');
+const port = parseInt(process.env.PORT || '5000');
+
+const server = http.createServer(app);
+
+server.on('listening', () => {
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  // eslint-disable-next-line no-console
+  console.log(`Listening on ${bind}`);
 });
-app.listen(port, (err) => {
-  if (err) {
-    console.log(`Error :${err.message}`);
-  } else {
-    console.log(`listening on port ${port}`);
-  }
-});
+
+process.on('SIGTERM', () => server.close(() => disconnectDb()));
+
+connectDb().then(() => server.listen(port));
