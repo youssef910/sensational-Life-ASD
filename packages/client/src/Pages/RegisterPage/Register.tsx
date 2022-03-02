@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createNewUser } from '../../api/user';
 import registerImage from '../../assets/images/SignUp.png';
 import Inputs from '../../components/Inputs';
 type registerProps = {
@@ -14,15 +15,26 @@ const RegisterPage: React.FC<registerProps> = (props) => {
     pwd: '',
     confirmPwd: '',
   };
-  const [form, setForm] = useState(initialState);
+
+  const [signInForm, setSignInForm] = useState(initialState);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, SetErrorMessage] = useState('');
+  const { name, email, pwd, confirmPwd } = signInForm;
+
   const handleChange = (name: string, value: string) => {
-    setForm({ ...form, [name]: value });
+    setSignInForm({ ...signInForm, [name]: value });
   };
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(form);
-    handleRegister(false);
-    // setForm(initialState)
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    pwd === confirmPwd
+      ? createNewUser(signInForm).then((data) =>
+          data.success
+            ? (handleSignIn(true), handleRegister(false))
+            : (SetErrorMessage(data.message), setShowError(true))
+        )
+      : (setShowError(true),
+        SetErrorMessage("Password doesn't Match Confirm Password"));
   };
 
   return (
@@ -55,33 +67,36 @@ const RegisterPage: React.FC<registerProps> = (props) => {
         <h1 className='my-10 text-center  text-40 font-roboto '>
           Register With Us
         </h1>
+        {showError && (
+          <p className='text-center text-red-700 '>{errorMessage}</p>
+        )}
         <form
           className='mx-2 flex flex-col justify-items-center space-y-5 md:mx-24 font-ambit_italic text-16 '
           onSubmit={handleSubmit}
         >
           <Inputs
-            value={form.name}
+            value={name}
             name='name'
             type='text'
             placeholder='Name'
             onChange={handleChange}
           />
           <Inputs
-            value={form.email}
+            value={email}
             name='email'
             type='email'
             placeholder='Email'
             onChange={handleChange}
           />
           <Inputs
-            value={form.pwd}
+            value={pwd}
             name='pwd'
             type='password'
             placeholder='Password'
             onChange={handleChange}
           />
           <Inputs
-            value={form.confirmPwd}
+            value={confirmPwd}
             name='confirmPwd'
             type='password'
             placeholder='Repeat Password'
