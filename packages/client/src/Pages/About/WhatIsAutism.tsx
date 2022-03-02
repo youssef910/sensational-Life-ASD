@@ -40,13 +40,12 @@ const WhatIsAutism = () => {
           </p>
         </div>
         <div className=' p-5 '>
-          <div>
             <ReactPlayer
               url='https://www.youtube.com/watch?v=0Pp8jcQ97pY'
               controls={true}
               width='100%'
             />
-          </div>
+        
           <div>
             <p className=' text-center px-10 text-18 font-ambit_italic'>
               Here is an informative video about Autism Spectrum Disorder by The
