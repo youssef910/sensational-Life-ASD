@@ -4,7 +4,7 @@ export const items = {
     taps: [
       {
         label: 'What is Autism',
-        link: '/',
+        link: '/what-is-autism',
       },
       {
         label: 'Signs and Symptoms',
