@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import autisticLittleGirl from '../../assets/images/autistic-little-girl-close-up.jpg';
+import { getLoggedInUserData } from '../../Helpers/storage';
 type registerProps = {
   handleRegister: (state: boolean) => void;
 };
 const Welcome: React.FC<registerProps> = (props) => {
   const { handleRegister } = props;
+  useEffect(() => getLoggedInUserData(), [getLoggedInUserData()]);
   return (
     <div
       className=' grid grid-rows-2  relative bg-d-ltBg md:grid-cols-2 
@@ -54,20 +56,22 @@ const Welcome: React.FC<registerProps> = (props) => {
           </li>
         </ul>
         <div>
-          <button
-            onClick={() => handleRegister(true)}
-            className=' border-1 group  focus:ring-d-Black-300 my-5 ml-6 mr-5
+          {getLoggedInUserData() ? null : (
+            <button
+              onClick={() => handleRegister(true)}
+              className=' border-1 group  focus:ring-d-Black-300 my-5 ml-6 mr-5
             w-3/4 bg-d-blue px-4 py-0  text-center  font-ambit_bold text-24 text-white 
             hover:bg-blue-800 focus:outline-none focus:ring '
-          >
-            Click here to Register
-            <div
-              className=' absolute  mt-3   ml-20  hidden rounded bg-d-Black 
-                 px-1 text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
             >
-              Click to Register
-            </div>
-          </button>
+              Click here to Register
+              <div
+                className=' absolute  mt-3   ml-20  hidden rounded bg-d-Black 
+                 px-1 text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
+              >
+                Click to Register
+              </div>
+            </button>
+          )}
         </div>
       </div>
       <div className='relative   pl-3 '>

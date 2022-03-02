@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { signApi } from '../../api/user';
 import registerImage from '../../assets/images/SignIn.png';
 import Inputs from '../../components/Inputs';
+import { saveLoggedInUserData } from '../../Helpers/storage';
 
 type registerProps = {
   handleSignIn: (state: boolean) => void;
@@ -9,20 +11,26 @@ type registerProps = {
 const SignInPage: React.FC<registerProps> = (props) => {
   const { handleSignIn, handleRegister } = props;
   const initialState = {
-    name: '',
     email: '',
     pwd: '',
-    confirmPwd: '',
   };
-  const [form, setForm] = useState(initialState);
+
+  const [signInCredentials, setSignInCredentials] = useState(initialState);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, SetErrorMessage] = useState('');
+  const { email, pwd } = signInCredentials;
+
   const handleChange = (name: string, value: string) => {
-    setForm({ ...form, [name]: value });
+    setSignInCredentials({ ...signInCredentials, [name]: value });
   };
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(form);
-    handleSignIn(false);
-    // setForm(initialState)
+    signApi(email, pwd).then((data) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      data.success
+        ? (saveLoggedInUserData(data), handleSignIn(false))
+        : (SetErrorMessage(data.message), setShowError(true));
+    });
   };
 
   return (
@@ -55,19 +63,22 @@ const SignInPage: React.FC<registerProps> = (props) => {
         <h1 className='my-10 text-center  text-40 font-roboto '>
           Sign In to Continue
         </h1>
+        {showError && (
+          <p className='text-center text-red-700 '>{errorMessage}</p>
+        )}
         <form
           className='mx-2 flex flex-col justify-items-center space-y-5 md:mx-24 font-ambit_italic text-16 '
           onSubmit={handleSubmit}
         >
           <Inputs
-            value={form.email}
+            value={email}
             name='email'
             type='email'
             placeholder='Email'
             onChange={handleChange}
           />
           <Inputs
-            value={form.pwd}
+            value={pwd}
             name='pwd'
             type='password'
             placeholder='Password'

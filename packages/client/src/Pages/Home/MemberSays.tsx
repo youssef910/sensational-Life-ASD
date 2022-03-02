@@ -1,5 +1,6 @@
 import React from 'react';
 import { membersSays } from '../../Helpers/membersays';
+import { getLoggedInUserData } from '../../Helpers/storage';
 type registerProps = {
   handleRegister: (state: boolean) => void;
 };
@@ -23,23 +24,25 @@ const MemberSays: React.FC<registerProps> = (props) => {
         ))}
       </div>
       <div className='mt-4 grid justify-items-center mb-5'>
-        <button
-          onClick={() => {
-            window.scroll(0, 0);
-            handleRegister(true);
-          }}
-          className=' border-1 group  focus:ring-d-Black-300 w-full bg-d-Black px-4
+        {getLoggedInUserData() ? null : (
+          <button
+            onClick={() => {
+              window.scroll(0, 0);
+              handleRegister(true);
+            }}
+            className=' border-1 group  focus:ring-d-Black-300 w-full bg-d-Black px-4
             py-2 text-center  font-ambit_bold text-24   text-white 
             hover:bg-slate-600 focus:outline-none focus:ring '
-        >
-          Click here to Register
-          <div
-            className=' absolute  mt-3   ml-20  hidden rounded bg-d-Black 
-                 px-1 text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
           >
-            Click to Register
-          </div>
-        </button>
+            Click here to Register
+            <div
+              className=' absolute  mt-3   ml-20  hidden rounded bg-d-Black 
+                 px-1 text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
+            >
+              Click to Register
+            </div>
+          </button>
+        )}
       </div>
     </div>
   );
