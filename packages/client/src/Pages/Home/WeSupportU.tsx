@@ -1,5 +1,6 @@
 import React from 'react';
 import weSupportUImg from '../../assets/images/supporting-elderly-woman.jpg';
+import { getLoggedInUserData } from '../../Helpers/storage';
 type registerProps = {
   handleRegister: (state: boolean) => void;
 };
@@ -20,22 +21,24 @@ const WeSupportU: React.FC<registerProps> = (props) => {
           <br /> concerns), then this is the group for you!
         </p>
         <div>
-          <button
-            onClick={() => {
-              window.scroll(0, 0);
-              handleRegister(true);
-            }}
-            className={` border-1 group focus:ring-d-Black-300 my-5
-              ml-6 w-fit bg-d-Black px-4 py-2 text-center font-ambit_bold text-24 text-white hover:bg-stone-600 focus:outline-none focus:ring `}
-          >
-            Join Us
-            <div
-              className=' absolute  mt-3  hidden  rounded bg-d-Black px-1 
-                 text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
+          {getLoggedInUserData() ? null : (
+            <button
+              onClick={() => {
+                window.scroll(0, 0);
+                handleRegister(true);
+              }}
+              className={` border-1 group focus:ring-d-Black-300 my-5
+            ml-6 w-fit bg-d-Black px-4 py-2 text-center font-ambit_bold text-24 text-white hover:bg-stone-600 focus:outline-none focus:ring `}
             >
-              Click Join Us
-            </div>
-          </button>
+              Join Us
+              <div
+                className=' absolute  mt-3  hidden  rounded bg-d-Black px-1 
+              text-sm text-white shadow-xl hover:bg-d-lBlue group-hover:block'
+              >
+                Click Join Us
+              </div>
+            </button>
+          )}
         </div>
       </div>
       <div className='relative   pl-3'>
