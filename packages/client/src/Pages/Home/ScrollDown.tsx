@@ -1,4 +1,3 @@
-
 const ScrollDown = () => {
   return (
     <div className='grid grid-cols-1 justify-items-center bg-d-ltBg lg:mx-10 h-36'>
@@ -15,9 +14,9 @@ const ScrollDown = () => {
           stroke='currentColor'
         >
           <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
             d='M19 13l-7 7-7-7m14-8l-7 7-7-7'
           />
         </svg>

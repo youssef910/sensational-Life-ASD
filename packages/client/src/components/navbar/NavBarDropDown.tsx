@@ -33,7 +33,7 @@ const NavBarDropDown = (props: {
         mt-2 w-48 rounded-md shadow-lg  bg-d-ltBg ri  z-50'
         >
           {items.taps.map((item) => (
-            <Menu.Item>
+            <Menu.Item key={item.label}>
               {({ active }) => (
                 <Link
                   to={item.link}
