@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Footer from './components/footer/Footer';
 import NavBar from './components/navbar/NavBar';
+import SignsAndSymptoms from './Pages/About/signsOfAutism/SignsOfAutism';
 import WhatIsAutism from './Pages/About/WhatIsAutism';
 import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound';
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/' element={<Home handleRegister={handleRegister} />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/what-is-autism' element={<WhatIsAutism />} />
+          <Route path='/signs-of-autism' element={<SignsAndSymptoms />} />
         </Routes>
         <Footer handleRegister={handleRegister} />
       </BrowserRouter>

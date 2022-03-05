@@ -8,7 +8,7 @@ export const items = {
       },
       {
         label: 'Signs and Symptoms',
-        link: '/about',
+        link: '/signs-of-autism',
       },
       {
         label: 'Additional Support',
