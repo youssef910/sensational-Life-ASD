@@ -12,7 +12,7 @@ export const items = {
       },
       {
         label: 'Additional Support',
-        link: '/',
+        link: '/additional-support',
       },
       {
         label: 'Our Events',
