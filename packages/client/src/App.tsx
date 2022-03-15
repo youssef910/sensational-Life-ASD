@@ -5,6 +5,7 @@ import NavBar from './components/navbar/NavBar';
 import AdditionalSupport from './Pages/About/AdditionalSupport';
 import SignsAndSymptoms from './Pages/About/signsOfAutism/SignsOfAutism';
 import WhatIsAutism from './Pages/About/WhatIsAutism';
+import AboutSensationalLife from './Pages/About/AboutSensationalLife';
 import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound';
 import RegisterPage from './Pages/RegisterPage/Register';
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='*' element={<NotFound />} />
           <Route path='/what-is-autism' element={<WhatIsAutism />} />
           <Route path='/signs-of-autism' element={<SignsAndSymptoms />} />
+          <Route path='/about-us' element={<AboutSensationalLife />} />
           <Route
             path='/additional-support'
             element={
