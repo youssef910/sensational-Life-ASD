@@ -18,7 +18,7 @@ const WhatWeDo = () => {
           <br /> within the neurodiverse family.
         </p>
         <div>
-          <Link to='/whatWeDoPg'>
+          <Link to='/what-we-do'>
             <button
               className={` border-1 group focus:ring-d-Black-300 my-5
               ml-6 w-fit bg-d-Black px-4 py-2 text-center font-ambit_bold text-24 text-white hover:bg-stone-600 focus:outline-none focus:ring `}

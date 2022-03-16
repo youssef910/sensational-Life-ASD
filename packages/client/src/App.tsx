@@ -10,6 +10,7 @@ import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound';
 import RegisterPage from './Pages/RegisterPage/Register';
 import SignInPage from './Pages/SignIn Page/SignInPage';
+import WhatWeDoPage from './Pages/About/WhatWeDoPage';
 
 const App = () => {
   const [openRegister, setOpenRegister] = useState(false);
@@ -35,6 +36,7 @@ const App = () => {
               />
             }
           />
+          <Route path='/what-we-do' element={<WhatWeDoPage />} />
         </Routes>
         <Footer handleRegister={handleRegister} />
       </BrowserRouter>
